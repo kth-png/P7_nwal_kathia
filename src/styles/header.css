@@ -1,0 +1,23 @@
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+img{
+    padding-left: 1rem;
+}
+nav{
+    width: 15%;
+    padding-right: 2rem;
+   
+}
+ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 0;
+    list-style-type: none;
+    color: #FF6060;
+;
+}
