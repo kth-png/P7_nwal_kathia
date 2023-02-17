@@ -1,0 +1,36 @@
+.footer-container {
+  position: relative;
+  top: 3500px;
+  width: 1440px;
+  height: 209px;
+  background: #000000;
+}
+
+.footer-text {
+  position: absolute;
+  left: 32.15%;
+  right: 32.22%;
+  top: 64.11%;
+  bottom: 13.88%;
+
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 142.6%;
+
+  /* or 34px */
+  display: flex;
+  align-items: flex-end;
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.footer-logo {
+  position: absolute;
+  left: 45.76%;
+  right: 45.76%;
+  top: 31.58%;
+  bottom: 49.55%;
+}

@@ -1,0 +1,12 @@
+@import './mixins';
+@import './variables';
+
+@import './base';
+
+@import '../components//Collapse/Collapse';
+@import '../components/AboutBanner/AboutBanner';
+@import '../components/HomeBanner/HomeBanner';
+@import '../components/header/Header';
+@import '../components/gallery/Gallery.scss';
+@import '../components/flatCard/FlatCard.scss';
+@import '../components/footer/Footer';
