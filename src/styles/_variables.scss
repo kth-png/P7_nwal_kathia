@@ -1,0 +1,21 @@
+$primary-color: #ff6060;
+$secondary-color: #f7f7f7;
+$tertiary-color: #ffffff;
+
+$footer-color: #000000;
+$background-color: rgba(0, 0, 0, 0.3);
+$linear-cards: linear-gradient(
+  180deg,
+  rgba(255, 255, 255, 0) 0%,
+  rgba(0, 0, 0, 0.5) 100%
+);
+
+$about-background: $background-color url(../../assets/about-background.png);
+$about-background-mobile: $background-color
+  url(../../assets/mobile-about-background.png);
+$banner-background: $background-color url(../../assets/background-banner.png);
+
+$maxwidth: 768px;
+$minwidth: 375px;
+
+$breakpoint-desktop: 769px;
