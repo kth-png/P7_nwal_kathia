@@ -22,11 +22,11 @@ export default function Flat() {
         <Carroussel slides={slide} />
         <section className="hostCard-container">
           <div className="flatInfos-container">
-            <div className="flatInfos redText">
+            <div className="title-container redText">
               <h2>{logement.title}</h2>
               <h3>{logement.location}</h3>
             </div>
-            <div className="tag-container">
+            <div className="tags-container">
               {tags.map((tag) => (
                 <div key={tag} className="tagContainer">
                   <span className="tagButton">{tag}</span>
@@ -36,7 +36,6 @@ export default function Flat() {
           </div>
           <div className="profile-container">
             <div className="profile redText">
-              {' '}
               <Host
                 hostName={logement.host.name}
                 hostPicture={logement.host.picture}
