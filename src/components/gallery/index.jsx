@@ -1,11 +1,10 @@
-import flats from '../../datas/logements.json'
 import FlatCard from '../flatCard'
 
-function Gallery() {
+function Gallery({logements}) {
   return (
     <div className="gallery-container">
-      {flats.map((prop) => (
-        <FlatCard key={prop.id} cover={prop.cover} title={prop.title} />
+      {logements.map((flat) => (
+        <FlatCard id={flat.id} cover={flat.cover} title={flat.title} key={flat.id}/>
       ))}
     </div>
   )

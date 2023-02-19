@@ -1,0 +1,51 @@
+.errorContainer {
+	color: $primary-color;
+	@include flex-column;
+	margin: 22px 6%;
+}
+
+.errorNumber {
+	@include flex-center;
+	@include font(96px, 700);
+	margin: 12rem 0 1rem 0;
+
+	@media screen and (min-width: $breakpoint-desktop) {
+		@include font(288px, 700);
+		margin: 0;
+	}
+}
+
+%flex-error {
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+
+.errorText {
+	@extend %flex-error;
+	text-align: center;
+	@include font(18px, 500);
+	margin: 0 11%;
+
+	@media screen and (min-width: $breakpoint-desktop) {
+		@include font(36px, 500);
+		margin: 0;
+	}
+}
+
+.errorLinkHome {
+	@extend %flex-error;
+	text-decoration: none;
+	color: $primary-color;
+	@include font(14px, 500);
+	margin-top: 9rem;
+
+	@media screen and (min-width: $breakpoint-desktop) {
+		@include font(18px, 500);
+	}
+
+	&:hover,
+	&:focus {
+		text-decoration-line: underline;
+	}
+}
