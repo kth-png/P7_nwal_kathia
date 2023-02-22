@@ -1,6 +1,5 @@
 @import './mixins';
 @import './variables';
-
 @import './base';
 
 @import '../components//Collapse/Collapse';
@@ -9,4 +8,8 @@
 @import '../components/header/Header';
 @import '../components/gallery/Gallery.scss';
 @import '../components/flatCard/FlatCard.scss';
+@import '../components/Carroussel/Carroussel';
+@import '../components/Host/Host';
+@import '../components/Rate/Rate';
 @import '../components/footer/Footer';
+@import '../pages/error/ErrorPage'

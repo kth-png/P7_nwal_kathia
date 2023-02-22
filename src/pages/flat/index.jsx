@@ -1,42 +1,56 @@
-import data from '../../datas/logements.json'
-import { useState, useEffect } from 'react'
-import { useParams, Redirect, useLoaderData } from 'react-router-dom'
+import { useLoaderData } from 'react-router-dom'
+import Carroussel from '../../components/Carroussel/Carroussel'
+import Host from '../../components/Host/Host'
+import Rate from '../../components/Rate/Rate'
+import Collapse from '../../components/Collapse'
 
-function Flat() {
-  const params = useParams()
-
-  const [isSelected, setIsSelected] = useState()
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const selectedFlat = data.find(({ id }) => id === params.id)
-  //     data.map(() => setIsSelected(selectedFlat))
-  //     if (selectedFlat === undefined) {
-  //       ('/error')
-  //     }
-  //   }
-  //   getData()
-  // }, [])
-
+export default function Flat() {
   const { logement } = useLoaderData()
-
+  const slide = logement.pictures
+  const tags = logement && logement.tags
+  const equipments = logement && logement.equipments
+  const equipment =
+    logement &&
+    equipments.map((item, index) => (
+      <li key={index} className="equipmentList">
+        {item}
+      </li>
+    ))
   return (
-    <div className="flat-container">
-      <p>Caroussel</p>
-      <section className="hostCard-container">
-        <div className="flatInfos-container">
-          <div className="flatInfos redText">
-            <h2>TITRE APPART</h2>
-            <h3>LOCALISATION</h3>
+    logement && (
+      <main className="flat-container">
+        <Carroussel slides={slide} />
+        <section className="hostCard-container">
+          <div className="flatInfos-container">
+            <div className="title-container redText">
+              <h2>{logement.title}</h2>
+              <h3>{logement.location}</h3>
+            </div>
+            <div className="tags-container">
+              {tags.map((tag) => (
+                <div key={tag} className="tagContainer">
+                  <span className="tagButton">{tag}</span>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="tag-container">TAGS</div>
+          <div className="profile-container">
+            <div className="profile redText">
+              <Host
+                hostName={logement.host.name}
+                hostPicture={logement.host.picture}
+              />
+            </div>
+            <div className="rate-container">
+              <Rate score={logement.rating} />
+            </div>
+          </div>
+        </section>
+        <div className="collapse-fiche-container">
+          <Collapse aboutTitle="Description" aboutText={logement.description} />
+          <Collapse aboutTitle="Équipements" aboutText={equipment} />
         </div>
-        <div className="profile-container">
-          <div className="profile redText">HOST NAME + PIC</div>
-          <div className="rate-container">RATE</div>
-        </div>
-      </section>
-    </div>
+      </main>
+    )
   )
 }
-
-export default Flat

@@ -1,11 +1,10 @@
-import React from 'react'
 import AboutBanner from '../../components/AboutBanner'
 import Collapse from '../../components/Collapse'
 import aboutDatas from '../../datas/About.json'
 
 export default function About() {
   return (
-    <>
+    <main>
       <AboutBanner />
       {aboutDatas.map((x, id) => (
         <Collapse
@@ -15,6 +14,6 @@ export default function About() {
           aboutStyle="about-style"
         />
       ))}
-    </>
+    </main>
   )
 }

@@ -4,7 +4,12 @@ function Gallery({ logements }) {
   return (
     <div className="gallery-container">
       {logements.map((prop) => (
-        <FlatCard key={prop.id} cover={prop.cover} title={prop.title} />
+        <FlatCard
+          key={prop.id}
+          cover={prop.cover}
+          title={prop.title}
+          id={prop.id}
+        />
       ))}
     </div>
   )
