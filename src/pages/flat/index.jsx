@@ -3,16 +3,16 @@ import Carroussel from '../../components/Carroussel/Carroussel'
 import Host from '../../components/Host/Host'
 import Rate from '../../components/Rate/Rate'
 import Collapse from '../../components/Collapse'
+import TagCard from '../../components/TagCard/TagCard'
 
 export default function Flat() {
   const { logement } = useLoaderData()
   const slide = logement.pictures
-  const tags = logement && logement.tags
   const equipments = logement && logement.equipments
   const equipment =
     logement &&
     equipments.map((item, index) => (
-      <li key={index} className="equipmentList">
+      <li key={index} className="equipList">
         {item}
       </li>
     ))
@@ -26,13 +26,7 @@ export default function Flat() {
               <h2>{logement.title}</h2>
               <h3>{logement.location}</h3>
             </div>
-            <div className="tags-container">
-              {tags.map((tag) => (
-                <div key={tag} className="tagContainer">
-                  <span className="tagButton">{tag}</span>
-                </div>
-              ))}
-            </div>
+            <TagCard tags={logement.tags} />
           </div>
           <div className="profile-container">
             <div className="profile redText">

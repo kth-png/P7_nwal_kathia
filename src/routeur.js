@@ -10,6 +10,7 @@ import Flat from './pages/flat'
 import Error from './pages/error'
 import Layout from './components/Layout/Layout'
 import data from './datas/logements.json'
+import Tag from './pages/tag/Tag'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,6 +34,16 @@ const router = createBrowserRouter(
           const logement = data.find((l) => l.id === id)
           if (logement === undefined || logement === null) throw new Error()
           return { logement }
+        }}
+      />
+      <Route
+        path="/:tag"
+        element={<Tag logements={data} />}
+        loader={({ params }) => {
+          const { tag } = params
+          if (tag === undefined || tag === null) throw new Error()
+          const tags = data.filter((el) => el.tags.includes(tag))
+          return { tags }
         }}
       />
       <Route path="*" element={<Error />} />

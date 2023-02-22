@@ -10,6 +10,7 @@ import Flat from './pages/flat'
 import Error from './pages/error'
 import Layout from './components/Layout/Layout'
 import data from './datas/logements.json'
+import Tag from './pages/tag/tag'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -35,6 +36,7 @@ const router = createBrowserRouter(
           return { logement }
         }}
       />
+
       <Route path="*" element={<Error />} />
     </Route>
   )

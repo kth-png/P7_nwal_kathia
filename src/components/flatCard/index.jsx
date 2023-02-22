@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-export default function FlatCard(logement) {
+export default function FlatCard(logement, id) {
   return (
     <Link to={`/flat/${logement.id}`} className="acc-card" id={logement.id}>
       <img src={logement.cover} alt="" className="acc-cover" />
