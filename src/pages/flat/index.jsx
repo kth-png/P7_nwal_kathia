@@ -16,6 +16,7 @@ export default function Flat() {
         {item}
       </li>
     ))
+
   return (
     logement && (
       <main className="flat-container">

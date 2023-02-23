@@ -23,9 +23,10 @@ const router = createBrowserRouter(
           return data
         }}
       />
-      <Route path="/about" element={<About />} />
+      <Route path="about" element={<About />} />
+
       <Route
-        path="/flat/:id"
+        path="flat/:id"
         element={<Flat />}
         errorElement={<Error />}
         loader={({ params }) => {
@@ -37,15 +38,18 @@ const router = createBrowserRouter(
         }}
       />
       <Route
-        path="/:tag"
-        element={<Tag logements={data} />}
+        path=":tag"
+        element={<Tag />}
+        errorElement={<Error />}
         loader={({ params }) => {
           const { tag } = params
           if (tag === undefined || tag === null) throw new Error()
           const tags = data.filter((el) => el.tags.includes(tag))
-          return { tags }
+          console.log(tag)
+          return { tag, tags }
         }}
       />
+
       <Route path="*" element={<Error />} />
     </Route>
   )

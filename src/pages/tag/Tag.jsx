@@ -1,69 +1,49 @@
-import { useState } from 'react'
 import { useLoaderData } from 'react-router-dom'
 import Carroussel from '../../components/Carroussel/Carroussel'
-import TagCard from '../../components/TagCard/TagCard'
+import Collapse from '../../components/Collapse'
+import FlatCard from '../../components/flatCard'
+import aboutDatas from '../../datas/About.json'
 
-function Tag({ logements }) {
-  //   const tagDatas = data.find((e) => (e.tags.value = tag))
-  //     for (let i = 0; i < data.length; i++)
-  //      { data[i].tags.includes(tag) ? data[i]: null}
-  // console.log(data[i])
-
-  // return <TagCard tags={tags} />
-
-  const { tags } = useLoaderData()
-  // const tags = logements.filter((el) => el.tags.includes(tagParams))
+function Tag() {
+  const { tag, tags } = useLoaderData()
+  const spliceAboutDatas = aboutDatas.splice(2, 3)
+  console.log('ABOUT', spliceAboutDatas)
   console.log('TAGS', tags)
-  // const [selectedTag, setSelectedTag] = useState()
-
-  const handleNextStep = (e) => {
-    // const tagOnClick = e.target.innerHTML
-    // setSelectedTag(tagOnClick)
-    e.preventDefault()
-  }
-
-  // function TagLink({tags}) {
-  //   return (
-  //     <a
-  //       onClick={handleNextStep}
-  //       href={`/${props.value}`}
-  //       className="tagContainer tagButton"
-  //     >
-  //       {props.value}
-  //     </a>
-  //   )
-  // }
-
-  // const listTags = tags.map((tag, index) => (
-  //   <TagLink key={`${index}-${tag}`} value={tag.value} />
-  // ))
-  // return <div className="tags-container">{listTags}</div>
-
   return (
-    // <div className="tags-container">
-    //   {tags.map((tag, index) => (
-    //     <a
-    //       key={`${index}-${tag}`}
-    //       onClick={handleNextStep}
-    //       href={`/${tag}`}
-    //       className="tagContainer tagButton"
-    //     >
-    //       {tag.value}
-    //     </a>
-    //   ))}
-    // </div>
-    <div>
-      {tags.map((tag, index) => (
-        <div key={`${tag}-${index}`}>
-          <h4>{tag.title}</h4>
-          <Carroussel slides={tag.pictures} />
-          <p>{tag.description}</p>
-          {/* utliser le contexte ou l'état à partir du composant TagCard 
-          lors du click sur le tag pour faire monter la valeur de l'élément 
-          cliqué qui redirige vers la page tag */}
-        </div>
+    <main>
+      <h1>{tag}</h1>
+      <div className="itemTag-container">
+        {tags.map((itemTag, index) => (
+          <div key={`${index}-${itemTag}`} className="itemTag">
+            <FlatCard cover={itemTag.cover} title={itemTag.title} />{' '}
+            <div className="collapse-fiche-container">
+              <Collapse
+                aboutTitle="Description"
+                aboutText={itemTag.description}
+              />
+              <Collapse
+                aboutTitle="Équipements"
+                aboutText={itemTag.equipments}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {aboutDatas.map((rule, id) => (
+        <Collapse
+          key={id}
+          aboutTitle={rule.aboutTitle}
+          aboutText={rule.aboutText}
+          aboutStyle="about-style"
+        />
       ))}
-    </div>
+      <div>
+        {tags.map((slide, index) => (
+          <Carroussel key={`${slide}-${index}`} slides={slide.pictures} />
+        ))}
+      </div>
+    </main>
   )
 }
 
