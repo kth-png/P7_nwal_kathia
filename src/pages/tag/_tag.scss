@@ -1,0 +1,36 @@
+.item-tag {
+  &__container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    @media screen and (min-width: $breakpoint-desktop) {
+      flex-direction: row;
+    }
+  }
+
+  &__element {
+    margin-top: 20px;
+
+    &:not(:first-child) {
+      @media screen and (min-width: $breakpoint-desktop) {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  &__collapse {
+    width: 100%;
+    @media screen and (min-width: $breakpoint-desktop) {
+      margin: 4% auto 0;
+    }
+  }
+
+  &__panels {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 4%;
+  }
+}

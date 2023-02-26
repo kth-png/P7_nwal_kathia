@@ -7,6 +7,7 @@ import TagCard from '../../components/TagCard/TagCard'
 
 export default function Flat() {
   const { logement } = useLoaderData()
+  const { host } = logement
   const slide = logement.pictures
   const equipments = logement && logement.equipments
   const equipment =
@@ -31,10 +32,7 @@ export default function Flat() {
           </div>
           <div className="profile-container">
             <div className="profile redText">
-              <Host
-                hostName={logement.host.name}
-                hostPicture={logement.host.picture}
-              />
+              <Host hostName={host.name} hostPicture={host.picture} />
             </div>
             <div className="rate-container">
               <Rate score={logement.rating} />

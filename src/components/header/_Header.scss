@@ -8,43 +8,45 @@
     margin: 40px 100px 49px 100px;
   }
 
-  Link {
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 9rem;
-
-    @media screen and (min-width: $breakpoint-desktop) {
-      width: 13.2rem;
-    }
-
-    img {
-      width: 100%;
-    }
-  }
-  .header-nav {
-    @include flex-end;
-    text-transform: uppercase;
-
-    @media screen and (min-width: $breakpoint-desktop) {
-      text-transform: none;
-    }
-
-    &-link-home,
-    &-link-about {
-      @include font-right(12px);
-      color: $primary-color;
-      text-decoration: none;
-      padding-left: 0.8rem;
+  .header {
+    &-nav {
+      @include flex-end;
+      text-transform: uppercase;
 
       @media screen and (min-width: $breakpoint-desktop) {
-        @include font-right(24px);
-        padding-left: 3.5rem;
+        text-transform: none;
       }
 
-      &:hover,
-      &:focus {
-        text-decoration-line: underline;
+      &-link-home,
+      &-link-about {
+        @include font-right(12px);
+        color: $primary-color;
+        text-decoration: none;
+        padding-left: 0.8rem;
+
+        @media screen and (min-width: $breakpoint-desktop) {
+          @include font-right(24px);
+          padding-left: 3.5rem;
+        }
+
+        &:hover,
+        &:focus {
+          text-decoration-line: underline;
+        }
+      }
+    }
+    &-logo {
+      display: flex;
+      align-items: flex-start;
+      margin: 0;
+      width: 9rem;
+
+      @media screen and (min-width: $breakpoint-desktop) {
+        width: 13.2rem;
+      }
+
+      &-img {
+        width: 100%;
       }
     }
   }

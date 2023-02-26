@@ -83,6 +83,7 @@
 .collapse-fiche-container {
   @include flex-column;
   width: 100%;
+  align-items: flex-start;
 
   @media screen and (min-width: $breakpoint-desktop) {
     flex-direction: row;

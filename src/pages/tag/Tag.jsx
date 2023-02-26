@@ -6,43 +6,46 @@ import aboutDatas from '../../datas/About.json'
 
 function Tag() {
   const { tag, tags } = useLoaderData()
-  const spliceAboutDatas = aboutDatas.splice(2, 3)
-  console.log('ABOUT', spliceAboutDatas)
-  console.log('TAGS', tags)
+  const pictures = tags.map((tag) => tag.pictures).flatMap((pics) => pics)
+  const printedTag = tags[0]
   return (
-    <main>
-      <h1>{tag}</h1>
-      <div className="itemTag-container">
+    <main className="item-tag">
+      <h1 className="item-tag__title">{tag}</h1>
+      <div className="item-tag__container">
         {tags.map((itemTag, index) => (
-          <div key={`${index}-${itemTag}`} className="itemTag">
-            <FlatCard cover={itemTag.cover} title={itemTag.title} />{' '}
-            <div className="collapse-fiche-container">
-              <Collapse
-                aboutTitle="Description"
-                aboutText={itemTag.description}
-              />
-              <Collapse
-                aboutTitle="Équipements"
-                aboutText={itemTag.equipments}
-              />
-            </div>
+          <div key={`${index}-${itemTag}`} className="item-tag__element">
+            <FlatCard
+              id={itemTag.id}
+              cover={itemTag.cover}
+              title={itemTag.title}
+            />{' '}
           </div>
         ))}
       </div>
-
-      {aboutDatas.map((rule, id) => (
-        <Collapse
-          key={id}
-          aboutTitle={rule.aboutTitle}
-          aboutText={rule.aboutText}
-          aboutStyle="about-style"
-        />
-      ))}
-      <div>
-        {tags.map((slide, index) => (
-          <Carroussel key={`${slide}-${index}`} slides={slide.pictures} />
+      <div className="item-tag__panels">
+        <div className="collapse-fiche-container">
+          <Collapse
+            aboutTitle="Description"
+            aboutText={printedTag.description}
+            className="item-tag__collapse"
+          />
+          <Collapse
+            aboutTitle="Équipements"
+            aboutText={printedTag.equipments}
+            className="item-tag__collapse"
+          />
+        </div>
+        {aboutDatas.map((rule, id) => (
+          <Collapse
+            key={id}
+            aboutTitle={rule.aboutTitle}
+            aboutText={rule.aboutText}
+            aboutStyle="about-style"
+            className="item-tag__collapse"
+          />
         ))}
       </div>
+      <Carroussel slides={pictures} />
     </main>
   )
 }

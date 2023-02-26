@@ -18,6 +18,7 @@ const router = createBrowserRouter(
       <Route
         exact
         path="/"
+        errorElement={<Error />}
         element={<Home />}
         loader={() => {
           return data
@@ -38,14 +39,13 @@ const router = createBrowserRouter(
         }}
       />
       <Route
-        path=":tag"
+        path="flat/tags/:tag"
         element={<Tag />}
         errorElement={<Error />}
         loader={({ params }) => {
           const { tag } = params
           if (tag === undefined || tag === null) throw new Error()
           const tags = data.filter((el) => el.tags.includes(tag))
-          console.log(tag)
           return { tag, tags }
         }}
       />

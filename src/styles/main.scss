@@ -2,7 +2,7 @@
 @import './variables';
 @import './base';
 
-@import '../components//Collapse/Collapse';
+@import '../components/Collapse/Collapse';
 @import '../components/AboutBanner/AboutBanner';
 @import '../components/HomeBanner/HomeBanner';
 @import '../components/header/Header';
@@ -12,4 +12,5 @@
 @import '../components/Host/Host';
 @import '../components/Rate/Rate';
 @import '../components/footer/Footer';
-@import '../pages/error/ErrorPage'
+@import '../pages/error/ErrorPage';
+@import '../pages/tag/tag';
