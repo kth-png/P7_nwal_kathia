@@ -6,22 +6,22 @@ import Collapse from '../../components/Collapse'
 import TagCard from '../../components/TagCard/TagCard'
 
 export default function Flat() {
-  const { logement } = useLoaderData()
-  const { host } = logement
-  const slide = logement.pictures
-  const equipments = logement && logement.equipments
+  const { logement } = useLoaderData() //Récupère les données du logement grace au hook useLoader
+  const { host } = logement //Récupère les infos de l'host dans les données du logement
+  const { pictures } = logement //Récupère les images dans les données du logement
+  const { equipments } = logement //Récupère la liste d'équipements dans les données du logement
   const equipment =
     logement &&
     equipments.map((item, index) => (
       <li key={index} className="equipList">
         {item}
       </li>
-    ))
+    )) //Map chaque équipement dans un élément de liste
 
   return (
     logement && (
       <main className="flat-container">
-        <Carroussel slides={slide} />
+        <Carroussel slides={pictures} />
         <section className="hostCard-container">
           <div className="flatInfos-container">
             <div className="title-container redText">

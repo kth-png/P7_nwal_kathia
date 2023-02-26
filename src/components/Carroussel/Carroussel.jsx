@@ -2,20 +2,21 @@ import { useState } from 'react'
 import left from '../../assets/vector-left.svg'
 import right from '../../assets/vector-right.svg'
 
-export default function Carroussel({slides}) {
-  const [currentSlide, setCurrentSlide] = useState(0)
+export default function Carroussel({ slides }) {
+  const [currentSlide, setCurrentSlide] = useState(0) //Récupère la position de l'image affichée,
   const length = slides.length
   const nextSlide = () => {
-    setCurrentSlide(currentSlide === length - 1 ? 0 : currentSlide + 1)}
-    const prevSlide = () => {
-      setCurrentSlide(currentSlide === 0 ? length - 1 : currentSlide - 1)
-    }
-  
+    setCurrentSlide(currentSlide === length - 1 ? 0 : currentSlide + 1)
+  } //si c'est la dernière, la suivante est la première image
+  const prevSlide = () => {
+    setCurrentSlide(currentSlide === 0 ? length - 1 : currentSlide - 1)
+  } //si c'est la première, la précédente sera la dernière image
+
   return (
     <section id="carrousel-container">
       {length > 1 && (
         <img
-          src={left} 
+          src={left}
           alt="gauche"
           onClick={prevSlide}
           className="leftArrow"
@@ -31,14 +32,16 @@ export default function Carroussel({slides}) {
       )}
       {slides.map((slide, index) => (
         <div
-          key={index} 
+          key={index}
           className={
             currentSlide === index
               ? 'slider bl-msk wh-msk active-anim'
               : 'slider bl-msk wh-msk'
           }
         >
-          {index === currentSlide && <img src={slide} alt="appartement à louer" />}
+          {index === currentSlide && (
+            <img src={slide} alt="appartement à louer" />
+          )}
           {index === currentSlide && (
             <span className="slider__number">
               {currentSlide + 1}/{length}

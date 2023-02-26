@@ -2,12 +2,14 @@ import React, { useState, useRef, useEffect } from 'react'
 import vectorBas from '../../assets/vectorBas.svg'
 
 function Collapse(props) {
-  const [toggle, setToggle] = useState(false)
-  const [height, setHeight] = useState()
+  const [toggle, setToggle] = useState(false) //Défini l'état de l'élément,ici il est fermé
+  const [height, setHeight] = useState() //Défini la hauteur de l'élément
 
   const setToggleState = () => {
     setToggle(!toggle)
-  }
+  } // Change l'état actuel de l'élément,
+  //si il est fermé alors ouvre le,
+  //si il est fermé alors ferme
 
   const refHeight = useRef()
 

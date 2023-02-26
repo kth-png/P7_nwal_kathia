@@ -13,7 +13,8 @@ export default function About() {
           aboutText={rule.aboutText}
           aboutStyle="about-style"
         />
-      ))}
+      ))}{' '}
+      {/*Retrourne un composant pour chaque élément du tableau aboutDatas */}
     </main>
   )
 }

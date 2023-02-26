@@ -24,8 +24,8 @@ const router = createBrowserRouter(
           return data
         }}
       />
-      <Route path="about" element={<About />} />
-
+      {/*Route de la page Home */}
+      <Route path="about" element={<About />} /> {/*Route de la page About */}
       <Route
         path="flat/:id"
         element={<Flat />}
@@ -34,10 +34,12 @@ const router = createBrowserRouter(
           const { id } = params
           if (id === undefined || id === null) throw new Error()
           const logement = data.find((l) => l.id === id)
+          console.log('ROUTEUR', logement)
           if (logement === undefined || logement === null) throw new Error()
           return { logement }
         }}
       />
+      {/*Route de la page flat */}
       <Route
         path="flat/tags/:tag"
         element={<Tag />}
@@ -48,9 +50,9 @@ const router = createBrowserRouter(
           const tags = data.filter((el) => el.tags.includes(tag))
           return { tag, tags }
         }}
-      />
-
-      <Route path="*" element={<Error />} />
+      />{' '}
+      {/*Route de la page Tag */}
+      <Route path="*" element={<Error />} /> {/*Route de la page Error */}
     </Route>
   )
 )
