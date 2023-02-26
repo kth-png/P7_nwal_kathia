@@ -11,6 +11,7 @@ import Error from './pages/error'
 import Layout from './components/Layout/Layout'
 import data from './datas/logements.json'
 import Tag from './pages/tag/Tag'
+import aboutDatas from './datas/About.json'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,7 +26,14 @@ const router = createBrowserRouter(
         }}
       />
       {/*Route de la page Home */}
-      <Route path="about" element={<About />} /> {/*Route de la page About */}
+      <Route
+        path="about"
+        element={<About />}
+        loader={() => {
+          return { aboutDatas }
+        }}
+      />
+      {/*Route de la page About */}
       <Route
         path="flat/:id"
         element={<Flat />}
@@ -34,7 +42,6 @@ const router = createBrowserRouter(
           const { id } = params
           if (id === undefined || id === null) throw new Error()
           const logement = data.find((l) => l.id === id)
-          console.log('ROUTEUR', logement)
           if (logement === undefined || logement === null) throw new Error()
           return { logement }
         }}
@@ -48,9 +55,10 @@ const router = createBrowserRouter(
           const { tag } = params
           if (tag === undefined || tag === null) throw new Error()
           const tags = data.filter((el) => el.tags.includes(tag))
-          return { tag, tags }
+          const aPropos = aboutDatas.slice(0, 2)
+          return { tag, tags, aPropos }
         }}
-      />{' '}
+      />
       {/*Route de la page Tag */}
       <Route path="*" element={<Error />} /> {/*Route de la page Error */}
     </Route>

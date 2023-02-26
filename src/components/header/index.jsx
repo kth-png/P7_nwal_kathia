@@ -5,7 +5,7 @@ import logo from '../../assets/LOGO.png'
 export default function Header() {
   return (
     <div className="header-container">
-      <Link to="/">
+      <Link to="/" className="header-logo">
         <img src={logo} alt="logo Kasa" className="header-logo-img" />
       </Link>
       <nav className="header-nav">

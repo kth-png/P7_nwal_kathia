@@ -1,8 +1,9 @@
+import { useLoaderData } from 'react-router-dom'
 import AboutBanner from '../../components/AboutBanner'
 import Collapse from '../../components/Collapse'
-import aboutDatas from '../../datas/About.json'
 
 export default function About() {
+  const { aboutDatas } = useLoaderData()
   return (
     <main>
       <AboutBanner />

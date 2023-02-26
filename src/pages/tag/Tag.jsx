@@ -2,10 +2,9 @@ import { useLoaderData } from 'react-router-dom'
 import Carroussel from '../../components/Carroussel/Carroussel'
 import Collapse from '../../components/Collapse'
 import FlatCard from '../../components/flatCard'
-import aboutDatas from '../../datas/About.json'
 
 function Tag() {
-  const { tag, tags } = useLoaderData()
+  const { tag, tags, aPropos } = useLoaderData()
   const pictures = tags.map((tag) => tag.pictures).flatMap((pics) => pics)
   const printedTag = tags[0]
 
@@ -39,7 +38,7 @@ function Tag() {
           />
           {/*Retourne la liste d'équipements du logement à l'index 0 du tableau */}
         </div>
-        {aboutDatas.map((rule, id) => (
+        {aPropos.map((rule, id) => (
           <Collapse
             key={id}
             aboutTitle={rule.aboutTitle}

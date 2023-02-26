@@ -18,7 +18,7 @@ function Collapse(props) {
   }, [])
 
   return (
-    <div className="collapse about-style">
+    <div className={`${props.className ?? ''} collapse about-style `}>
       <div onClick={setToggleState} className="collapse__on">
         <h2>{props.aboutTitle}</h2>
         <img
